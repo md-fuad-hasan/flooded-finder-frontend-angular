@@ -1,21 +1,39 @@
 
 export interface DivisionModel {
-    ID: number;
-    Division: string
+    id: number;
+    name: string
+}
+
+export interface DivisionCreateModel {
+    name: string
 }
 
 export interface DistrictModel {
-    ID: number;
-    DivisionID: number;
-    District: string
+    id: number;
+    divisionId: number;
+    divisionName: string
+    name: string
+}
+
+export interface DistrictCreateModel {
+    divisionId: number;
+    name: string
 }
 
 
 export interface UpazilaModel {
-    ID: number;
-    DivisionID: number;
-    DistrictID: number;
-    Upazila: string
+    id: number;
+    name: string
+    districtName: string,
+    divisionName: string,
+    divisionId: number;
+    districtID: number;
+}
+
+export interface UpazilaCreateModel {
+    divisionId: number;
+    districtId: number;
+    name: string
 }
 
 export interface AreaModel {

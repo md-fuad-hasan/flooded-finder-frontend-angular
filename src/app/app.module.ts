@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { RouterOutlet } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,12 @@ import { RouterOutlet } from '@angular/router';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterOutlet
+    RouterOutlet,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

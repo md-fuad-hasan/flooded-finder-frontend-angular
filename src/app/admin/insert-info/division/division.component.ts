@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DivisionCreateModel, DivisionModel } from '../../../model/insert-info';
+import { InsertInfoService } from '../../../service/insert-info.service';
 
 @Component({
   selector: 'app-division',
@@ -6,13 +8,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './division.component.css'
 })
 export class DivisionComponent implements OnInit {
+  divisionName: string = '';
+  divisionList: DivisionModel[] = [];
 
-  division: any = '';
+  constructor(private insertInfoService: InsertInfoService) { }
 
-  constructor() { }
+  loadDivision() {
+    this.insertInfoService.getDivisionData().subscribe({
+      next: (res) => {
+        this.divisionList = res;
+        console.log(res);
+
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
+  postDivision() {
+    const data: DivisionCreateModel = {
+      name: this.divisionName
+    }
+
+    this.insertInfoService.postDivisionData(data).subscribe({
+      next: (res) => {
+        this.loadDivision();
+        console.log(res);
+
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+
+  }
 
   ngOnInit() {
-
+    this.loadDivision();
   }
 
 }

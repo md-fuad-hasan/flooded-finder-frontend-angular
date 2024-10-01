@@ -5,6 +5,7 @@ import { AccountRoutingModule } from './account-routing.module';
 import { AccountComponent } from './account.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     CommonModule,
-    AccountRoutingModule
+    AccountRoutingModule,
+    BrowserModule
   ]
 })
 export class AccountModule { }
