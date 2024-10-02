@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { CreateAreaComponent } from './create-area/create-area.component';
 import { TeamComponent } from './team/team.component';
 import { AreaComponent } from './area/area.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AreaComponent } from './area/area.component';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    FormsModule
   ]
 })
 export class HomeModule { }

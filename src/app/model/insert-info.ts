@@ -37,9 +37,10 @@ export interface UpazilaCreateModel {
 }
 
 export interface AreaModel {
-    ID: number;
-    DivisionID: number;
-    DistrictID: number;
-    UpazilaID: number;
-    Area: string
+
+    divisionId: number;
+    districtId: number;
+    upazilaId: number;
+    name: string;
+    phone: string;
 }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
     <div class="container">
       <a class="navbar-brand fs-4" routerLink="/">Flooded Finder</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,16 +13,23 @@
             <a class="nav-link" routerLink="team">Team</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="create-area">Create Area</a>
+            <a class="nav-link" routerLink="create-area">CreateArea</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="account/login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="account/signup">SignUp</a>
+          
+          <li class="nav-item" *ngIf="isLoggedIn; else signuplogin">
+            <a class="nav-link " style="cursor: pointer;" (click)="logout()">Logout</a>
           </li>
           
         </ul>
       </div>
     </div>
   </nav>
+
+  <ng-template #signuplogin>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="account/login">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="account/signup">SignUp</a>
+    </li>
+  </ng-template>

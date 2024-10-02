@@ -1,46 +1,42 @@
-<div class="m-auto mt-4 w-50">
-    <div class="card mt-3">
-        <div class="card-header">
-            <div class="d-flex justify-content-between">
-                <h5 class="d-inline">Team Name</h5>
-                <h6>Covered Area: 3</h6>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-6">
-                    <p class="fs-5">Email:  <span>Email</span></p>
-                    <p class="fs-5">Phone No:  <span> Phone No</span></p>
-                </div>
-                <div class="col-6 text-end ">
-                    <p>Area 1</p>
-                    <p>Area 2</p>
-                    <p>Area 3</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mt-3">
-        <div class="card-header">
-            <div class="d-flex justify-content-between">
-                <h5 class="d-inline">Team Name</h5>
-                <h6>Covered Area: 3</h6>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-6">
-                    <p class="fs-5">Email:  <span>Email</span></p>
-                    <p class="fs-5">Phone No:  <span> Phone No</span></p>
-                </div>
-                <div class="col-6 text-end ">
-                    <p>Area 1</p>
-                    <p>Area 2</p>
-                    <p>Area 3</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-</div>
 
+
+<div class="row mt-4">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8 col-12">
+        <div >
+            <div *ngFor="let team of teamsWithAreaList">
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="d-inline">{{team.name}}</h5>
+                            <h6>Covered Area: {{team.visitedAreaCount}}</h6>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <p class="fs-5">Email:  <span>{{team.teamEmail}}</span></p>
+                                <p class="fs-5">Phone No:  <span> {{team.teamPhone}}</span></p>
+                            </div>
+                            <div class="col-6 text-end ">
+                            <p *ngFor="let area of team.areasVisited">{{area.areaName}},{{area.areaUpazila}},{{area.areaDistrict}}</p>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    
+    </div>
+   
+    <div class="col-md-2">
+
+    </div>
+
+   
+</div>

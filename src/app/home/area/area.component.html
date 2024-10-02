@@ -1,46 +1,36 @@
-<div class="m-auto mt-4 w-50">
+<div class="row mt-4">
+    <div class="col-md-2">
 
-    <div class="card mt-3">
-        <div class="card-header">
-            <div class="d-flex justify-content-between">
-                <h5 class="d-inline">District</h5>
-                <span>Reach Team: 3</span>
+    </div>
+    <div class="col-md-8 col-12">
+        <div >
+            <div class="card mt-3" *ngFor="let area of areaVisitByTeamList">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="d-inline">{{ area.areaDistrict }}</h5>
+                        <span>Reach Team: {{area.visitedTeamCount}}</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="fs-5">Upazila:  <span>{{area.areaUpazila}}</span></p>
+                            <p class="fs-5">Area:  <span> {{area.areaName}}</span></p>
+                        </div>
+                        <div class="col-6 text-end fs-5">
+                            <p *ngFor="let team of area.visitedTeam">{{team.teamName}}</p>
+    
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-6">
-                    <p class="fs-5">Upazila:  <span>Upazila</span></p>
-                    <p class="fs-5">Area:  <span> Area</span></p>
-                </div>
-                <div class="col-6 text-end fs-5">
-                    <p>Team Name 1</p>
-                    <p>Team Name 2</p>
-                    <p>Team Name 3</p>
-                </div>
-            </div>
-        </div>
+    
+    </div>
+   
+    <div class="col-md-2">
+
     </div>
 
-    <div class="card mt-3">
-        <div class="card-header">
-            <div class="d-flex justify-content-between">
-                <h5 class="d-inline">District</h5>
-                <span>Reach Team: 3</span>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-6">
-                    <p class="fs-5">Upazila:  <span>Upazila</span></p>
-                    <p class="fs-5">Area:  <span> Area</span></p>
-                </div>
-                <div class="col-6 text-end fs-5">
-                    <p>Team Name 1</p>
-                    <p>Team Name 2</p>
-                    <p>Team Name 3</p>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 </div>

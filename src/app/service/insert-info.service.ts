@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { DistrictCreateModel, DistrictModel, DivisionCreateModel, DivisionModel, UpazilaCreateModel, UpazilaModel } from '../model/insert-info';
+import { AreaModel, DistrictCreateModel, DistrictModel, DivisionCreateModel, DivisionModel, UpazilaCreateModel, UpazilaModel } from '../model/insert-info';
 
 @Injectable({
   providedIn: 'root'
@@ -40,8 +40,21 @@ export class InsertInfoService {
   getUpazilaData() {
     return this.http.get<UpazilaModel[]>(this.upazilaUrl);
   }
+
+  getUpazilaByDistrict(districtID: number) {
+    const upazilaByDistrictUrl = this.url + 'api/Upazila/ByDistrict/' + districtID;
+    return this.http.get<UpazilaModel[]>(upazilaByDistrictUrl)
+  }
+
   postUpazilaData(data: UpazilaCreateModel) {
     return this.http.post<UpazilaCreateModel>(this.upazilaUrl, data);
+  }
+
+  // Area
+
+  areaCreateUrl = this.url + 'api/Area';
+  postAreaData(data: AreaModel) {
+    return this.http.post<AreaModel>(this.areaCreateUrl, data);
   }
 
 
