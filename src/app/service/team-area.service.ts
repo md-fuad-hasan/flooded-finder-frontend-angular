@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AreaWithTeamModel, TeamWithAreaModel } from '../model/TeamArea';
+import { AreaWithTeamModel, TeamArea, TeamWithAreaModel } from '../model/TeamArea';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,11 @@ export class TeamAreaService {
   teamsVisitAreaUrl = this.url + 'api/TeamsVisitToAreas'
   getTeamsVisitArea() {
     return this.http.get<TeamWithAreaModel[]>(this.teamsVisitAreaUrl);
+  }
+
+  userAreaUrl = this.url + 'api/UserArea'
+  postUserArea(data: TeamArea) {
+    return this.http.post<TeamArea>(this.userAreaUrl, data);
   }
 
 }

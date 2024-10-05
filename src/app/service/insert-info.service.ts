@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AreaModel, DistrictCreateModel, DistrictModel, DivisionCreateModel, DivisionModel, UpazilaCreateModel, UpazilaModel } from '../model/insert-info';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -54,7 +55,7 @@ export class InsertInfoService {
 
   areaCreateUrl = this.url + 'api/Area';
   postAreaData(data: AreaModel) {
-    return this.http.post<AreaModel>(this.areaCreateUrl, data);
+    return this.http.post<Observable<any>>(this.areaCreateUrl, data);
   }
 
 

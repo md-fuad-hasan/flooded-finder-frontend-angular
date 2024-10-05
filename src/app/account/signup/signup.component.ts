@@ -17,6 +17,9 @@ export class SignupComponent implements OnInit {
   userEmail: string = '';
   userPassword: string = '';
   userPhone: string = '';
+  displayShow: string = 'none';
+  errMsg: string = 'Something Went Wrong';
+
 
   registerUser() {
     const data: RegisterModel = {
@@ -28,14 +31,23 @@ export class SignupComponent implements OnInit {
 
     this.authService.registerUser(data).subscribe({
       next: (res) => {
-        this.router.navigate(['login']);
+
+        this.router.navigate(['account/login']);
       },
       error: (err) => {
-        console.log(err);
-        this.router.navigate(['team']);
+        if (err.error.msg[0]) {
+          this.errMsg = err.error.msg[0];
+        }
+
+        this.displayShow = 'block';
       }
     });
 
+
+  }
+
+  closeTab() {
+    this.displayShow = 'none';
 
   }
 

@@ -6,7 +6,7 @@ import { AreaComponent } from './area/area.component';
 
 const routes: Routes = [
   { path: '', component: AreaComponent },
-  { path: 'team', component: TeamComponent },
+  { path: 'team', component: TeamComponent, },
   { path: 'create-area', component: CreateAreaComponent },
 ];
 

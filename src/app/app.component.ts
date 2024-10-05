@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from './service/message.service';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  title = 'flooded-finder-frontend';
 
+  constructor(private messageService: MessageService) {
+
+
+  }
+  title = 'flooded-finder-frontend';
+  displayShow: string = 'none';
+  displayMessage: string = '';
   isAdmin: boolean = false;
+
 
   authCheck() {
     const token = localStorage.getItem('AuthToken');
@@ -22,7 +30,15 @@ export class AppComponent implements OnInit {
     }
   }
 
+  messageCheck() {
+    this.displayMessage = this.messageService.showMsg;
+    if (this.displayMessage != '') {
+      this.displayShow = 'block';
+    }
+  }
+
   ngOnInit(): void {
     this.authCheck();
+    this.messageCheck();
   }
 }

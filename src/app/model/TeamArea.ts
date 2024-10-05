@@ -34,3 +34,8 @@ export interface AreasVisited {
     areaDistrict: string
     areaDivision: string
 }
+
+export interface TeamArea {
+    userId: number
+    areaId: number
+}

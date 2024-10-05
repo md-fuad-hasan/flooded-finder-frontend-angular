@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { InsertInfoService } from '../../service/insert-info.service';
 import { AreaModel, DistrictModel, DivisionModel, UpazilaModel } from '../../model/insert-info';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-area',
@@ -20,9 +21,12 @@ export class CreateAreaComponent implements OnInit {
   districtList: DistrictModel[] = [];
   upazilaList: UpazilaModel[] = [];
 
+  displayShow: string = 'none';
+  errMsg: string = 'Something Went Wrong';
 
 
-  constructor(private insertInfoService: InsertInfoService, private cd: ChangeDetectorRef) {
+
+  constructor(private insertInfoService: InsertInfoService, private cd: ChangeDetectorRef, private router: Router) {
 
 
   }
@@ -79,10 +83,12 @@ export class CreateAreaComponent implements OnInit {
 
     this.insertInfoService.postAreaData(data).subscribe({
       next: (res) => {
-        this.cd.detectChanges();
+        this.router.navigate(['']);
+
         console.log(res);
       },
       error: (err) => {
+        this.displayShow = 'block';
         console.log(err);
       }
     })
@@ -97,6 +103,10 @@ export class CreateAreaComponent implements OnInit {
     this.loadUpazilaByDistrict();
     console.log(this.districtId);
 
+  }
+
+  closeTab() {
+    this.displayShow = 'none';
   }
 
 

@@ -51,3 +51,19 @@
   
 
 </div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal" [ngClass]="displayShow == 'none' ? 'displayNone' : 'displayBlock'">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+      <div class="d-flex justify-content-between ">
+          <div class="text-danger "  style="font-size: 28px; font-weight: bold;"> Error Message</div>
+          <span class="close " (click)="closeTab()">&times;</span>
+      </div>
+      <br>
+    <p>{{ errMsg }}</p>
+  </div>
+
+</div>

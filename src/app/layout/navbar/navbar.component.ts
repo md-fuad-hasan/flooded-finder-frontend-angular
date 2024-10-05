@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private cd: ChangeDetectorRef) {
   }
 
   isLoggedIn: boolean = false;
@@ -25,7 +25,11 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('UserID');
     localStorage.removeItem('UserType');
 
+    window.location.reload();
     this.router.navigate(['account/login']);
+
+
+
   }
 
 
